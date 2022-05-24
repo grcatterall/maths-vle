@@ -15,7 +15,7 @@ class CreateTaskcompletedTable extends Migration
     {
         Schema::create('taskcompleted', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('student_id');
+            $table->string('student_id');
             $table->integer('task_id')->unique();
             $table->string('marks_per_question');
             $table->integer('total_marks_earned');
