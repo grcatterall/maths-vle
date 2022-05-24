@@ -83,32 +83,6 @@ class SchoolController extends Controller
      */
     public function store(Request $request)
     {
-//        echo '<pre>';
-//        print_r($request->all());;
-//        print_r($request->allFiles());
-//        print_r(get_class_methods($request));
-//        die();
-//        $this->validate($request, [
-//            'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
-//        ]);
-
-        /*if($request->hasFile('logo')){
-            die('true');
-            $image = $request->file('logo');
-            $imageName = $image->getClientOriginalExtension();
-            $destinationPath = public_path('/images/' . $this->getImagePath($imageName));
-            $image->move($destinationPath, $imageName);
-           // $this->save();
-        }
-        die('false');*/
-
-        /*if($request->logo){
-            $image = $request->file('logo');
-            $imageName = $request->logo->getClientOriginalExtension();
-            $destinationPath = public_path('/images/' . $this->getImagePath($imageName));
-            $image->move($destinationPath, $imageName);
-            // $this->save();
-        }*/
         $address = \App\Models\Schools\SchoolAddress::create([
             'address1' => $request->get('address1'),
             'address2' =>  $request->get('address2'),
@@ -152,40 +126,6 @@ class SchoolController extends Controller
             'Pending' => $school->Pending
         ];
         return view('schools/viewschool', ['school' => $schoolArr]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 
     private function getImagePath($imageName)
