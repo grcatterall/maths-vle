@@ -18,7 +18,7 @@ class Questions extends Migration
             $table->string('Type');
             $table->text('Description');
             $table->integer('Marks');
-            $table->string('Image');
+            $table->string('Image')->nullable();
             $table->string('Answer');
             $table->string('Optional_Answers');
             $table->boolean('Is_Private');
